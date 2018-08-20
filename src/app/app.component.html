@@ -27,7 +27,7 @@
       <span routerLink="" class="branding spacer d-none d-md-inline"><img
         [src]="logo"/> {{ 'anms.title' | translate }}</span>
 
-      <span class="d-none d-md-inline">
+      <span class="d-none d-md-inline" *ngIf="isAuthenticated">
           <button mat-button class="nav-button" *ngFor="let item of navigation"
                   [routerLink]="[item.link]" routerLinkActive="active">
             {{item.label | translate}}
@@ -41,7 +41,7 @@
       </button>
 
       <button *ngIf="isAuthenticated"
-              mat-icon-button
+              mat-icon-button routerLink="../login"
               [matMenuTriggerFor]="toolbarUserMenu">
         <mat-icon fontSet="fas" fontIcon="fa-user-circle"></mat-icon>
       </button>
@@ -52,7 +52,7 @@
         </button>
       </mat-menu>
 
-      <button mat-icon-button routerLink="settings" class="d-none d-sm-inline">
+      <button mat-icon-button routerLink="settings" class="d-none d-sm-inline"  *ngIf="isAuthenticated">
         <mat-icon fontSet="fas" fontIcon="fa-cog"></mat-icon>
       </button>
 

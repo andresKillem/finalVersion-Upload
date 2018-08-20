@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SettingsComponent } from './settings';
 import {DashboardComponent} from '@app/dashboard/dashboard.component';
+import {AuthenticatedComponent} from '@app/examples/authenticated/authenticated.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: AuthenticatedComponent,
     pathMatch: 'full'
   },
   {

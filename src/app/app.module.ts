@@ -11,6 +11,7 @@ import { StaticModule } from './static';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthenticatedComponent} from '@app/examples/authenticated/authenticated.component';
 import { SimplePdfViewerModule } from 'simple-pdf-viewer';
 
 
@@ -32,7 +33,7 @@ import { SimplePdfViewerModule } from 'simple-pdf-viewer';
     AppRoutingModule
 
   ],
-  declarations: [AppComponent, DashboardComponent],
+  declarations: [AppComponent, DashboardComponent, AuthenticatedComponent],
   providers: [SimplePdfViewerModule],
   bootstrap: [AppComponent]
 })
