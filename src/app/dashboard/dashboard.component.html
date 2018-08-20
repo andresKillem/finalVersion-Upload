@@ -1,0 +1,84 @@
+<img class="dashboard-bg" [src]="backgroundUrl" #image1 style="z-index: -1">
+<div class="background">
+  <div class="gradient">
+    <div class="container">
+      <div class="actions">
+        <a mat-raised-button
+           [ngClass]="routeAnimationsElements"
+           target="_blank"
+           (click)="getContentFile('file1')">
+          <mat-icon fontSet="fab" fontIcon="fa-medium-m"></mat-icon>
+          {{btn1Label}}
+        </a>
+        <a mat-raised-button
+           [ngClass]="routeAnimationsElements"
+           target="_blank"
+           (click)="getContentFile('file2')">
+          <mat-icon fontSet="fab" fontIcon="fa-medium-m"></mat-icon>
+          {{btn2Label}}
+        </a>
+        <a mat-raised-button
+           [ngClass]="routeAnimationsElements"
+           target="_blank"
+           (click)="getContentFile('file3')">
+          <mat-icon fontSet="fab" fontIcon="fa-medium-m"></mat-icon>
+          {{btn3Label}}
+        </a>
+        <a mat-raised-button
+           [ngClass]="routeAnimationsElements"
+           target="_blank"
+           (click)="getContentFile('file4')">
+          <mat-icon fontSet="fab" fontIcon="fa-medium-m"></mat-icon>
+          {{btn4Label}}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="follow-releases" [ngClass]="routeAnimationsElements">
+    <img [src]="contentFile.uri" *ngIf="!!imageContent" alt="Release Butler tweet example"
+         style="z-index: 2; opacity: 1 !important;">
+    <video autoplay [src]="contentFile.uri" controls *ngIf="!!videoContent"
+           style="z-index: 2; opacity: 1 !important; margin: 0px !important; width: 100%; height: 100%"></video>
+
+    <div class="container center center-objects" *ngIf="!!imageContent || !!videoContent">
+      <mat-chip>
+          {{contentFile.name}} {{contentFile.mimeType}}
+      </mat-chip>
+    </div>
+    <!-- Example actions -->
+    <div class="container center" *ngIf="!!pdfContent">
+      <div class="actions">
+      </div>
+      <!-- Information -->
+      <mat-card>
+        <mat-card-title>
+          <p>{{contentFile.name}}</p>
+        </mat-card-title>
+        <mat-card-subtitle>
+          Number of pages: {{ pdfViewer.getNumberOfPages() }} Actual page: {{ pdfViewer.getCurrentPage() }} Zoom: {{
+          pdfViewer.getZoomPercent() }} %
+        </mat-card-subtitle>
+        <!-- Simple PDF Viewer: open the test.pdf at the second page -->
+        <section id="viewer">
+          <a mat-basic-chip class="actions-main" color="primary" (click)="pdfViewer.zoomIn()"
+             [ngClass]="routeAnimationsElements" style="margin-right: 5px; cursor: pointer;">
+            Zoom
+          </a>
+          <a mat-basic-chip class="actions-main" color="primary" (click)="pdfViewer.nextPage()"
+             [ngClass]="routeAnimationsElements" style="margin-right: 5px; cursor: pointer;">
+            Next Page
+          </a>
+          <mat-form-field class="example" style="width: 30% !important;">
+            <input matInput  #searchPdf placeholder="Search Text" maxlength="15" width="15">
+          </mat-form-field>
+          <a mat-icon-button target="_blank" (click)="pdfViewer.search(searchPdf.value)">Search</a>
+          <simple-pdf-viewer #pdfViewer [src]="contentFile.uri"></simple-pdf-viewer>
+        </section>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,272 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12"><h1>{{ 'anms.settings.title' | translate }}</h1></div>
+  </div>
+
+  <!--***Background****-->
+  <h3>Background</h3>
+  <div class="row center">
+    <div class="col-md-6 col-lg-4">
+      <mat-card>
+        <img mat-card-image height="300" width="300" [src]="previewImageUrl" alt="Background">
+      </mat-card>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <mat-card>
+        <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
+             [uploader]="backgroundUploader"
+             style="border: dotted 3px lightgray !important;">
+
+          <div class="center" style="font-size: 15px">Drag and drop or choose background image file</div>
+
+          <div class="col-md-5 center" style="margin: auto; vertical-align: auto !important; margin-top: fill !important;">
+            <button (click)="fileInput.click()"
+                    class="btn btn-default">
+              <i class="fa fa-upload"></i>
+            </button>
+
+            <input (click)="clearBackgroundFileQueue()" #fileInput style="display: none;"
+                   type="file" ng2FileSelect [uploader]="backgroundUploader">
+          </div>
+
+          <button class="mat-button" (click)="uploadBackground()" [disabled]="!backgroundUploader.getNotUploadedItems().length">
+            <i class="fa fa-upload">cloud_upload</i> <p>Upload</p>
+          </button>
+          <mat-progress-spinner class="mat-select-panel-done-animating center-objects" mode="determinate" [value]="backgroundUploader.progress">
+          </mat-progress-spinner>
+
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <br>
+  <!--******Buttons*****-->
+
+
+    <mat-card class="mt-5">
+      <mat-card-title>
+        <h5>Buttons</h5>
+      </mat-card-title>
+      <div class="row center">
+        <div class="col-md-3">
+          <mat-card>
+            <mat-card-title><h6>Button 1</h6></mat-card-title>
+            <button btn mat-flat-button>{{ btn1Label }}</button>
+            <!--Button Label-->
+            <div class="mt-3">
+              <mat-form-field class="example" style="width: 80% !important;">
+                <input matInput placeholder="Button Text" [(ngModel)]="btn1Label"maxlength="15" width="15"
+                       (change)="updateButtonLabel('btn1', btn1Label)">
+              </mat-form-field>
+            </div>
+            <!-- Upload Zone -->
+            <div class="my-drop-zone mt-3" ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                 (fileOver)="fileOverBase($event)" [uploader]="btnFileUploader1">
+              <div class="text-center mt-5" style="align-content: center !important;">
+
+                <button (click)="fileInput1.click()"
+                        class="btn btn-default">
+                  <i class="fa fa-upload"></i>
+                </button>
+                <input (click)="clearBackgroundFileQueue()" #fileInput1 style="display: none;"
+                       type="file" ng2FileSelect [uploader]="btnFileUploader1">
+              </div>
+              <div class="text-center mt-5">
+                <button mat-raised-button (click)="btnFileUploader1.uploadAll()"
+                        [disabled]="!btnFileUploader1.getNotUploadedItems().length">
+                  <span class="glyphicon glyphicon-upload"></span>
+                  <i class="material-icons">cloud_upload</i>
+                  <p>Upload</p>
+                </button>
+              </div>
+              <mat-progress-spinner class="mt-sm-1 center-objects" mode="determinate" value="{{ btnFileUploader1.progress }}"></mat-progress-spinner>
+            </div>
+          </mat-card>
+        </div>
+        <div class="col-md-3">
+          <mat-card>
+            <mat-card-title><h6>Button 2</h6></mat-card-title>
+            <button btn mat-flat-button>{{ btn2Label }}</button>
+            <!--Button Label-->
+            <div class="mt-3">
+              <mat-form-field class="example" style="width: 80% !important;">
+                <input matInput placeholder="Button Text" [(ngModel)]="btn2Label"maxlength="15" width="15"
+                       (change)="updateButtonLabel('btn2', btn2Label)">
+              </mat-form-field>
+            </div>
+            <!-- Upload Zone -->
+            <div class="my-drop-zone mt-3" ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                 (fileOver)="fileOverBase($event)" [uploader]="btnFileUploader2">
+              <div class="text-center mt-5" style="align-content: center !important;">
+
+                <button (click)="fileInput2.click()"
+                        class="btn btn-default">
+                  <i class="fa fa-upload"></i>
+                </button>
+                <input (click)="clearBackgroundFileQueue()" #fileInput2 style="display: none;"
+                       type="file" ng2FileSelect [uploader]="btnFileUploader2">
+              </div>
+              <div class="text-center mt-5">
+                <button mat-raised-button (click)="btnFileUploader2.uploadAll()"
+                        [disabled]="!btnFileUploader2.getNotUploadedItems().length">
+                  <span class="fa fa-upload"></span>
+                  <i class="material-icons">cloud_upload</i>
+                  <p>Upload</p>
+                </button>
+              </div>
+              <mat-progress-spinner class="mt-sm-1 center-objects" mode="determinate" value="{{ btnFileUploader2.progress }}"></mat-progress-spinner>
+            </div>
+          </mat-card>
+        </div>
+        <div class="col-md-3">
+          <mat-card>
+            <mat-card-title><h6>Button 3</h6></mat-card-title>
+            <button btn mat-flat-button>{{ btn3Label }}</button>
+            <!--Button Label-->
+            <div class="mt-3">
+              <mat-form-field class="example" style="width: 80% !important;">
+                <input matInput placeholder="Button Text" [(ngModel)]="btn3Label"maxlength="15" width="15"
+                       (change)="updateButtonLabel('btn3', btn3Label)">
+              </mat-form-field>
+            </div>
+            <!-- Upload Zone -->
+            <div class="my-drop-zone mt-3" ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                 (fileOver)="fileOverBase($event)" [uploader]="btnFileUploader3">
+              <div class="text-center mt-5" style="align-content: center !important;">
+
+                <button (click)="fileInput3.click()"
+                        class="btn btn-default">
+                  <i class="fa fa-upload"></i>
+                </button>
+                <input (click)="clearBackgroundFileQueue()" #fileInput3 style="display: none;"
+                       type="file" ng2FileSelect [uploader]="btnFileUploader3">
+              </div>
+              <div class="text-center mt-5">
+                <button mat-raised-button (click)="btnFileUploader3.uploadAll()"
+                        [disabled]="!btnFileUploader3.getNotUploadedItems().length">
+                  <span class="fa fa-upload"></span>
+                  <i class="material-icons">cloud_upload</i>
+                  <p>Upload</p>
+                </button>
+              </div>
+              <mat-progress-spinner class="mt-sm-1 center-objects" mode="determinate" value="{{ btnFileUploader3.progress }}"></mat-progress-spinner>
+            </div>
+          </mat-card>
+        </div>
+        <div class="col-md-3">
+          <mat-card>
+            <mat-card-title><h6>Button 4</h6></mat-card-title>
+            <button btn mat-flat-button>{{ btn4Label }}</button>
+            <!--Button Label-->
+            <div class="mt-3">
+              <mat-form-field class="example" style="width: 80% !important;">
+                <input matInput placeholder="Button Text" [(ngModel)]="btn4Label"maxlength="15" width="15"
+                       (change)="updateButtonLabel('btn4', btn4Label)">
+              </mat-form-field>
+            </div>
+            <!-- Upload Zone -->
+            <div class="my-drop-zone mt-3" ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                 (fileOver)="fileOverBase($event)" [uploader]="btnFileUploader4">
+              <div class="text-center mt-5" style="align-content: center !important;">
+
+                <button (click)="fileInput2.click()"
+                        class="btn btn-default">
+                  <i class="fa fa-upload"></i>
+                </button>
+                <input (click)="clearBackgroundFileQueue()" #fileInput2 style="display: none;"
+                       type="file" ng2FileSelect [uploader]="btnFileUploader4">
+              </div>
+              <div class="text-center mt-5">
+                <button mat-raised-button (click)="btnFileUploader4.uploadAll()"
+                        [disabled]="!btnFileUploader4.getNotUploadedItems().length">
+                  <span class="fa fa-upload"></span>
+                  <i class="material-icons">cloud_upload</i>
+                  <p>Upload</p>
+                </button>
+              </div>
+              <mat-progress-spinner class="mt-sm-1 center-objects" mode="determinate" value="{{ btnFileUploader4.progress }}"></mat-progress-spinner>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </mat-card>
+
+  <br>
+
+  <div class="row">
+    <div class="col-md-6 group">
+      <h2>{{ 'anms.settings.general' | translate }}</h2>
+      <div class="icon-form-field">
+        <mat-icon fontSet="fas" fontIcon="fa-language" color="accent"></mat-icon>
+        <mat-form-field>
+          <mat-select [placeholder]="'anms.settings.general.placeholder' | translate"
+                      [ngModel]="settings?.language"
+                      (selectionChange)="onLanguageSelect($event)"
+                      name="language">
+            <mat-option *ngFor="let l of languages" [value]="l.value">
+              {{ 'anms.settings.general.language.' + l.label | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-md-6 group">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 group">
+      <h2>{{ 'anms.settings.themes' | translate }}</h2>
+      <div class="icon-form-field">
+        <mat-icon fontSet="fas" fontIcon="fa-paint-brush" color="accent"></mat-icon>
+        <mat-form-field>
+          <mat-select [placeholder]="'anms.settings.themes.placeholder' | translate"
+                      [ngModel]="settings?.theme"
+                      (selectionChange)="onThemeSelect($event)"
+                      name="themes">
+            <mat-option *ngFor="let t of themes" [value]="t.value">
+              {{ 'anms.settings.themes.' + t.label | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="icon-form-field">
+        <mat-icon fontSet="fas" fontIcon="fa-lightbulb" color="accent"></mat-icon>
+        <mat-placeholder>{{ 'anms.settings.themes.night-mode' | translate }}
+        </mat-placeholder>
+        <mat-slide-toggle
+          [checked]="settings?.autoNightMode"
+          (change)="onAutoNightModeToggle($event)">
+        </mat-slide-toggle>
+      </div>
+    </div>
+    <div class="col-md-6 group">
+      <h2>{{ 'anms.settings.animations' | translate }}</h2>
+      <div class="icon-form-field">
+        <mat-icon fontSet="fas" fontIcon="fa-window-maximize" color="accent"></mat-icon>
+        <mat-placeholder>{{ 'anms.settings.animations.page' | translate }}
+        </mat-placeholder>
+        <mat-slide-toggle
+          matTooltip="Sorry, this feature is disabled in IE and EDGE"
+          matTooltipPosition="before"
+          *ngIf="settings?.pageAnimationsDisabled"
+          disabled>
+        </mat-slide-toggle>
+        <mat-slide-toggle
+          *ngIf="!settings?.pageAnimationsDisabled"
+          [checked]="settings?.pageAnimations"
+          (change)="onPageAnimationsToggle($event)">
+        </mat-slide-toggle>
+      </div>
+      <div class="icon-form-field">
+        <mat-icon fontSet="fas" fontIcon="fa-stream" color="accent"></mat-icon>
+        <mat-placeholder>{{ 'anms.settings.animations.elements' | translate }}
+        </mat-placeholder>
+        <mat-slide-toggle
+          [checked]="settings?.elementsAnimations"
+          (change)="onElementsAnimationsToggle($event)">
+        </mat-slide-toggle>
+      </div>
+    </div>
+  </div>
+</div>

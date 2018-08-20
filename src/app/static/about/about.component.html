@@ -1,0 +1,56 @@
+<div class="background">
+  <div class="gradient">
+    <div class="container">
+      <h1>{{ 'anms.title' | translate }}</h1>
+      <div class="actions">
+        <a [ngClass]="routeAnimationsElements"
+           mat-raised-button class="actions-main" color="primary" routerLink="../features">
+          {{ 'anms.menu.features' | translate }}
+        </a>
+        <a mat-raised-button class="actions-main" color="warn" routerLink="../settings"
+           [ngClass]="routeAnimationsElements">
+          {{ 'anms.about.change-theme' | translate }}
+        </a>
+        <br>
+
+        <br>
+        <a mat-raised-button
+           [ngClass]="routeAnimationsElements"
+           target="_blank">
+          <mat-icon fontSet="fab" fontIcon="fa-medium-m"></mat-icon>
+          Concept Video
+        </a>
+        <a mat-raised-button
+           [ngClass]="routeAnimationsElements"
+           target="_blank">
+          <mat-icon fontSet="fab" fontIcon="fa-medium-m"></mat-icon>
+          Video Production
+        </a>
+        <a mat-raised-button
+           [ngClass]="routeAnimationsElements"
+           target="_blank">
+          <mat-icon fontSet="fab" fontIcon="fa-medium-m"></mat-icon>
+          Design Brief
+        </a>
+        <a mat-raised-button
+           [ngClass]="routeAnimationsElements"
+           target="_blank">
+          <mat-icon fontSet="fab" fontIcon="fa-medium-m"></mat-icon>
+          Progress Drawings
+        </a>
+      </div>
+      <div class="get-started" [ngClass]="routeAnimationsElements">
+        <h2>{{ 'anms.about.get-started' | translate }}</h2>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="follow-releases" [ngClass]="routeAnimationsElements">
+    <img [src]="releaseButler" alt="Release Butler tweet example">
+  </div>
+</div>
+<div class="container">
+
+</div>
